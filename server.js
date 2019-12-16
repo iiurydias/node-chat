@@ -13,7 +13,7 @@ app.set('view engine', 'html');
 app.use("/", (req, res) => {
     res.render("index.html")
 })
-let messages = []
+let messages = [];
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`)
     socket.emit('previousMessages', messages)
@@ -21,8 +21,9 @@ io.on('connection', socket => {
         messages.push(data)
         socket.broadcast.emit("receivedMessage", data)
     })
-    socket.on('clearMessages', data => {
-        messages = []
+    socket.on('clearMessages', () => {
+        messages = [];
+        socket.broadcast.emit("clearDiv");
     })
 });
 server.listen(process.env.PORT || 3000);

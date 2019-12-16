@@ -17,7 +17,7 @@
         <div class="messages" id="messages"></div>
         <input type="text" name="message" placeholder="Digite sua mensagem">
         <button type="submit">Enviar</button>
-        <button onclick="clearMessages()">Limpar</button>
+        <button onclick="emitClearMessages()">Limpar</button>
     </form>
     <script type="text/javascript">
         var socket = io();
@@ -26,10 +26,13 @@
             $('.messages').scrollTop($(".messages").height());
         }
 
-        function clearMessages() {
+        function emitClearMessages() {
             socket.emit('clearMessages');
             document.getElementById("messages").innerHTML = "";
         }
+        socket.on("clearDiv", () => {
+            document.getElementById("messages").innerHTML = "";
+        })
 
         function renderMessage(message) {
             $('.messages').append(`<div class="message"><strong>${message.author}: </strong>${message.message}</div>`);
