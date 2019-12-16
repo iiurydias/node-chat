@@ -21,5 +21,8 @@ io.on('connection', socket => {
         messages.push(data)
         socket.broadcast.emit("receivedMessage", data)
     })
+    socket.on('clearMessages', data => {
+        messages = []
+    })
 });
 server.listen(process.env.PORT || 3000);
