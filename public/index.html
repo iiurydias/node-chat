@@ -21,10 +21,10 @@
             <input type="text" name="message" placeholder="Digite sua mensagem">
             <div class="buttons">
                 <div class="submitButton">
-                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary" id="submitButton" type="submit">Enviar</button>
                 </div>
                 <div class="clearButton">
-                    <button class="btn btn-danger" onclick="clear()">Limpar</button>
+                    <button class="btn btn-danger" type="button" id="clearButton">Limpar</button>
                 </div>
             </div>
         </form>
@@ -33,12 +33,12 @@
             var socket = io();
 
             function scrollDown() {
-                $('.messages').scrollTop($(".messages").height());
+                $('.messages').scrollTop(10000);
             }
-
-            function clear() {
+            $('#clearButton').click(function() {
                 document.getElementById("messages").innerHTML = "";
-            }
+            })
+
 
             function renderMessage(message) {
                 $('.messages').append(`<div class="message"><strong>${message.author}: </strong>${message.message}</div>`);
