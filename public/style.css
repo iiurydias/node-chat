@@ -9,6 +9,10 @@ body {
     box-sizing: border-box;
 }
 
+.container {
+    margin-top: 50px;
+}
+
 #chat {
     height: 100%;
     display: flex;
@@ -18,7 +22,7 @@ body {
 }
 
 input {
-    width: 600px;
+    width: 100%;
     border: 1px solid #ddd;
     height: 50px;
     padding: 0 20px;
@@ -26,7 +30,7 @@ input {
 }
 
 button {
-    width: 600px;
+    width: 100%;
     height: 50px;
     font-size: 14px;
     background: #069;
@@ -37,11 +41,29 @@ button {
     margin-top: 10px;
 }
 
+.submitButton {
+    width: 50%;
+    margin-right: 20px;
+    flex: 1;
+}
+
+.clearButton {
+    width: 50%;
+    flex: 1;
+}
+
 .messages {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: 300px;
     margin: 20px 0;
     border: 1px solid #ddd;
     padding: 20px;
     overflow: auto;
+}
+
+.buttons {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    margin-top: 20px;
 }

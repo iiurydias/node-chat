@@ -23,7 +23,6 @@ io.on('connection', socket => {
     })
     socket.on('clearMessages', () => {
         messages = [];
-        socket.broadcast.emit("clearDiv");
     })
 });
 server.listen(process.env.PORT || 3000);
